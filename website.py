@@ -2,6 +2,7 @@ from flask import Flask, render_template, request
 from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
+#app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://preverdiau:user@0.0.0.0/sandbox'
 app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://preverdi:admin@preverdi.mysql.pythonanywhere-services.com/preverdi$sandbox'
 db = SQLAlchemy(app)
 
@@ -47,7 +48,8 @@ def hello():
         db.session.commit()
 
     users = User.query.all()
-    return render_template('index.html', users = ["a","b"])
+    return render_template('index.html', users = users)
 
 if __name__ == '__main__':
-    app.run(host="0.0.0.0", port=5003)
+    app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://preverdiau:user@0.0.0.0/sandbox'
+    app.run(host="0.0.0.0", port=5003, debug = True)
