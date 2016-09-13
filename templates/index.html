@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="{{url_for('static', filename='monstyle.css') }}" rel="stylesheet" type="text/css" />
+
+</head>
+<body>
+    <h1> Salut charles </h1>
+    <p> bonne année</p>
+
+    <form action="" method="post">
+        <label> username : </label><input name="username"></input>
+        <label> email : </label><input name="email"></input>
+        <br><br>
+        <button class="button" type="submit" name="action" value="add"> Add </button>
+        <button class="button" type="submit" name="action" value="remove"> Remove </button>
+    </form>
+
+    {% for user in users %}
+            <li>
+                {{user.id}}
+                {{user.username}}
+                {{user.email}}
+            </li>
+    {% endfor %}
+
+    <br>
+    <div>
+        passe ta souris
+    </div>
+</body>
+</html>
