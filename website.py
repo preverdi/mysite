@@ -47,5 +47,7 @@ def hello():
         db.session.commit()
 
     users = User.query.all()
-    return render_template('index.html', users = users)
+    return render_template('index.html', users = ["a","b"])
 
+if __name__ == '__main__':
+    app.run(host="0.0.0.0", port=5003)
